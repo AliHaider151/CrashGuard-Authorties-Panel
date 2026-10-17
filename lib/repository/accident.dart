@@ -29,6 +29,16 @@ class AccidentRepository {
         );
   }
 
+  Stream<AccidentModel?> streamAccident(String id) {
+    return _ref
+        .doc(id)
+        .snapshots()
+        .map(
+          (snapshot) =>
+              snapshot.exists ? AccidentModel.fromSnapshot(snapshot) : null,
+        );
+  }
+
   Future<List<AccidentModel>> getAccidentsByDateRange(
     DateTime startDate,
     DateTime endDate,
