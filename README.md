@@ -4,6 +4,10 @@
 
 Crash Guard is a Flutter-based operations panel for reviewing accident reports and coordinating emergency response. It provides role-oriented dashboards for accident monitoring, report review, incident history, and staff-user management. Accident records are stored in Cloud Firestore, and the accident verification dialog listens for live updates so AI-generated results appear as they are written.
 
+## Project Preview
+
+![Project Screenshot](assets/visuals/CrashGuard.png)
+
 ## Features
 
 - **Today's accidents:** Monitor current-day reports and update their response status.
@@ -83,16 +87,16 @@ dart format lib test
 
 The application reads accident records from the `accidents` collection. Accident documents use the following fields:
 
-| Field | Description |
-| --- | --- |
-| `video_url` | URL of the incident recording |
-| `latitude`, `longitude` | Reported incident coordinates |
-| `address` | Human-readable incident location |
-| `confidence` | Detection confidence |
-| `severity` | Accident severity |
-| `status` | Current response status |
-| `timestamp` | Report timestamp |
-| `verification` | Optional AI verification result |
+| Field                   | Description                      |
+| ----------------------- | -------------------------------- |
+| `video_url`             | URL of the incident recording    |
+| `latitude`, `longitude` | Reported incident coordinates    |
+| `address`               | Human-readable incident location |
+| `confidence`            | Detection confidence             |
+| `severity`              | Accident severity                |
+| `status`                | Current response status          |
+| `timestamp`             | Report timestamp                 |
+| `verification`          | Optional AI verification result  |
 
 The optional `verification` map can contain `verdict`, `confidence`, `severity`, `incident_types`, `hazards_detected`, `reasoning_summary`, `recommended_action`, `requires_more_frames`, `alternative_explanations`, and `visual_evidence`. Missing values are shown as processing in the panel; empty lists are shown as completed results with no items.
 
